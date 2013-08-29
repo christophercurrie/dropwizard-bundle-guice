@@ -1,5 +1,6 @@
 package org.fizmo.dropwizard.guice;
 
+import com.google.common.base.Optional;
 import com.google.inject.AbstractModule;
 import com.google.inject.Scopes;
 import com.google.inject.servlet.GuiceFilter;
@@ -7,14 +8,19 @@ import com.sun.jersey.guice.JerseyServletModule;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
 import com.yammer.dropwizard.config.Environment;
 
-class DropwizardModule<T> extends AbstractModule
+class DropwizardModule extends AbstractModule
 {
-    private final T configuration;
+    private final Optional<Object> configuration;
     private final Environment environment;
 
-    public DropwizardModule(T configuration, Environment environment)
+    public DropwizardModule(Environment environment)
     {
-        this.configuration = configuration;
+        this(null, environment);
+    }
+
+    public DropwizardModule(Object configuration, Environment environment)
+    {
+        this.configuration = Optional.fromNullable(configuration);
         this.environment = environment;
     }
 
@@ -22,12 +28,14 @@ class DropwizardModule<T> extends AbstractModule
     protected void configure()
     {
         install(new JerseyServletModule());
-
-        final Class<T> configClass = (Class<T>) configuration.getClass();
-        bind(configClass).toInstance(configuration);
         bind(Environment.class).toInstance(environment);
-
         bind(GuiceContainer.class).to(DropwizardGuiceContainer.class).asEagerSingleton();
+
+        if (configuration.isPresent()) {
+            final Object config = configuration.get();
+            final Class configClass = config.getClass();
+            bind(configClass).toInstance(config);
+        }
     }
 
 }

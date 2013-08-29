@@ -50,7 +50,7 @@ public class GuiceBundle<T> implements ConfiguredBundle<T> {
     public void run(final T configuration, final Environment environment)
     {
         final Iterable<Module> configedModules = configureModules(configuration, modules);
-        final DropwizardModule<T> dwModule = new DropwizardModule<T>(configuration, environment);
+        final DropwizardModule dwModule = new DropwizardModule(configuration, environment);
 
         final Injector injector = parentInjector.or(Guice.createInjector())
                 .createChildInjector(Iterables.concat(of(dwModule), configedModules));
