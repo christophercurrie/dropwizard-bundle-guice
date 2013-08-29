@@ -1,4 +1,4 @@
-package org.fizmo.dropwizard.guice.resources;
+package org.fizmo.dropwizard.guice.service.resources;
 
 import com.google.inject.Inject;
 import com.sun.jersey.api.core.HttpContext;

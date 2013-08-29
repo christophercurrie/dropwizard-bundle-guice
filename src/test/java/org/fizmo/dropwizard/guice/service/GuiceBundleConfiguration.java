@@ -1,4 +1,4 @@
-package org.fizmo.dropwizard.guice;
+package org.fizmo.dropwizard.guice.service;
 
 import com.yammer.dropwizard.config.Configuration;
 

@@ -1,8 +1,9 @@
-package org.fizmo.dropwizard.guice;
+package org.fizmo.dropwizard.guice.service;
 
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
+import org.fizmo.dropwizard.guice.GuiceBundle;
 
 public class GuiceBundleService extends Service<GuiceBundleConfiguration>
 {

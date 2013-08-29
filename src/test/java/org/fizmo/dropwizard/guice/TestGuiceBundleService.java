@@ -3,6 +3,8 @@ package org.fizmo.dropwizard.guice;
 import com.google.common.io.Resources;
 import com.sun.jersey.api.client.Client;
 import com.yammer.dropwizard.testing.junit.DropwizardServiceRule;
+import org.fizmo.dropwizard.guice.service.GuiceBundleConfiguration;
+import org.fizmo.dropwizard.guice.service.GuiceBundleService;
 import org.junit.Assert;
 import org.junit.ClassRule;
 import org.junit.Test;

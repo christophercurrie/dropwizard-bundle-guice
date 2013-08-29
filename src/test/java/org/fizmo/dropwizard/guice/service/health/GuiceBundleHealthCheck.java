@@ -1,4 +1,4 @@
-package org.fizmo.dropwizard.guice.health;
+package org.fizmo.dropwizard.guice.service.health;
 
 import com.yammer.dropwizard.config.Environment;
 import com.yammer.metrics.core.HealthCheck;

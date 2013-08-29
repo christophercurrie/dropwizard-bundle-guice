@@ -1,13 +1,10 @@
-package org.fizmo.dropwizard.guice;
+package org.fizmo.dropwizard.guice.service;
 
 import com.google.inject.AbstractModule;
-import com.google.inject.TypeLiteral;
 import com.google.inject.multibindings.Multibinder;
 import com.yammer.metrics.core.HealthCheck;
-import org.fizmo.dropwizard.guice.health.GuiceBundleHealthCheck;
-import org.fizmo.dropwizard.guice.resources.GuiceBundleResource;
-
-import java.util.Set;
+import org.fizmo.dropwizard.guice.service.health.GuiceBundleHealthCheck;
+import org.fizmo.dropwizard.guice.service.resources.GuiceBundleResource;
 
 public class GuiceBundleModule extends AbstractModule
 {

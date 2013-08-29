@@ -46,7 +46,7 @@ public interface ModuleFactory<T> {
         }
 
         /**
-         * A helper function to create
+         * A helper function to create a list of ModuleFactories from a list of Module classes.
          *
          * @param moduleClasses The class of the module.
          * @param <T> The type of the configuration object.
